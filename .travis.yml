@@ -1,0 +1,18 @@
+language: generic
+sudo: required
+services:
+  - docker
+env:
+  global:
+    # DOCKER_USERNAME
+    #- secure: 
+    # DOCKER_PASSWORD
+    #- secure: 
+
+matrix:
+  - IMAGE=aws-ecr-cleaner
+  - IMAGE=helm
+  - IMAGE=kubectl
+
+script:
+  - cd ${IMAGE} && make build && make publish
