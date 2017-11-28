@@ -1,5 +1,5 @@
 GIT_VERSION = $(shell git describe --always)
-REPOSITORY_URL = uvduvd/aws-ecr-cleaner
+REPOSITORY_URL = uvdltd/aws-ecr-cleaner
 
 build:
 	docker run --rm \
