@@ -11,6 +11,7 @@ env:
 
 matrix:
   - IMAGE=aws-ecr-cleaner
+  - IMAGE=kibana
   # - IMAGE=helm
   # - IMAGE=kubectl
 
