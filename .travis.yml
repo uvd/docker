@@ -8,12 +8,13 @@ env:
     - secure: EUJ9IqXegWL5Pg6gWT9jJ1bok+9mpuKpkVr09oAJjQkvvCKC5G7QTBn7RQmxFgwJLgEM5vEX8A9o6F+K7vZmehYK5zN6859tLvqlj8TwME/nEayJ4SIC1KlBi8ipQPdd+vtnkeWgwV756eu4qhOKAln9OlhSTPJlyS27q5/+nT5vw2ziir457surGIMg4HVIEY4CbDyt4KUHN5TiFMjjOJcdQClKA4/xqpDh4IjwFHAfmn3GRcY2+3S+Sf/vBnqDPhk9gU/pPaCtAGKEkAljIteEC+1u8mm8w/aOZqShTAZnIPikZlL3Jf3KQJpgqOkBSa67hR7HWnwzEwPjx6wASosh994voWLXyG9tvyqaHrdvSPLrg6y2Fugx0Y/X29uoWCV3+BnZ+EYMupiFhSb1pBVv3YXsc+fUtyvMV5LgIyYqq2CGhplJfwdtak4rGeonf/1+HpqR9oTULDgabacHsc4XDPt9mPXayydPvD28+kXriNtHmzmT15WIFKjSPAMWof913vTcoAdnPIK0q+bjWmu0fVqSFzEr1ZIPc5bOxWFuU0SfHXM3L1ytHBA0IWQ4HILUvdoszB5+15sMgHoPligLfIaKj21WvCtZF4YW6kFROdIDlUiGMJrvONMmgtHxtLJpazPaE/KpjUMZCA3Fbh8FJlvZEBqYG+D+Do2n+3o=
     # DOCKER_PASSWORD
     - secure: OZiB4SFpySG/qTltnXCgmKXtgpYsun3L5s2AFJds56qJWAE+EULM8AejIs0nSDO/1vJt4E9U+zJU2WIBeMeiL3WnjM7XDL9bTXPAa0TyellN+hgm8lG79aZrZZ5561Yrt+29Z7Jt9ku30l+jz+Nd0gZcXtifzZVng8CPksvdH2bOZNXdg32JBQ8fHmwjQO6y3nawRfAhg8n/B+P1KdJW/YCmxr3WxfS07hkKHxMy19lP+U91ZuBTOLCOPswQFj7r2rADcM+hjnnXyZVNGrUh0USvRpNzWVwawHAzVbgwMQQWH2wXvnQBNgbJaROgM/tjUmm8kTDLscd0lxC/oDkUOSBk/r3ltDZGdnluK9xHEEqAoFINZfDC+S0PC8uRHms872q6ze73wIrJhIj6mAwGZiGuUUtlbTQ02Uq9wbFqKOJnxKekZCGjoaOy71KaXuNlfRtxL7Z7uRX/z+D3uykEcgKQTyXbctHiCQ/CaJLUN8ajK5EJoclNqN5jn/F9nau49BfmUsCNKZQODSdYwzdQWskS5HfFV+pBnC9BIP5XUp+SYvfhgJPjEmuAIU9MiMY97GbBor8riUSdsFah/JtSyh1y1lM1Q5hF/r1K8hhCupEvNxotsfjn81mGoZreo34DJhzGHme9qgsIfj5EiXDr+D4ZyW+qq4gIafgi6EcTZhI=
-
-matrix:
+  matrix:
   - IMAGE=aws-ecr-cleaner
   - IMAGE=kibana
   # - IMAGE=helm
   # - IMAGE=kubectl
 
 script:
-  - cd ${IMAGE} && make build && make publish
+  - cd ${TRAVIS_BUILD_DIR}/${IMAGE} && make build 
+  - docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+  - cd ${TRAVIS_BUILD_DIR}/${IMAGE} && make publish
