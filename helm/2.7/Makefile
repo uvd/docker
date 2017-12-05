@@ -6,4 +6,4 @@ build:
 
 publish:
 	docker push ${REPOSITORY_URL}:${GIT_VERSION}
-	docker push ${REPOSITORY_URL}:latest
+	docker push ${REPOSITORY_URL}:2.7
