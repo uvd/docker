@@ -16,6 +16,7 @@ env:
   - IMAGE=kops/1.8
   - IMAGE=kops/heptio-authenticator
   - IMAGE=openssl/1
+  - IMAGE=terraform-helm
 
 script:
   - cd ${TRAVIS_BUILD_DIR}/${IMAGE} && make build 
