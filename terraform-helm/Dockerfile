@@ -9,7 +9,7 @@ RUN mkdir -p $GOPATH/src/github.com/mcuadros && \
 FROM hashicorp/terraform:0.11.3
 
 RUN mkdir -p /root/.terraform.d/plugins/
-COPY --from=0 /go/src/github.com/mcuadros/terraform-provider-helm /root/.terraform.d/plugins/terraform-provider-helm
+COPY --from=0 /go/src/github.com/mcuadros/terraform-provider-helm /root/.terraform.d/plugins
 
 ENV HELM_VERSION "v2.7.2"
 ADD https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz /helm.tar.gz
