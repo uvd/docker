@@ -10,18 +10,15 @@ env:
     - secure: "n+o4oYJ56UrSKR53Hecv5EpJvzmpAN45UhU6lLbJrD4UaF56GqLHMFEz9plo2JlJKXp/7kjz80mfia5BXWfOmOcq8xbmFcSGLi+6Vt1nyrr0rQ24kLoxoui6xpmJWvcEI4AJU5Fd4he3MSQHLRA4w4TcLVqHUDMPydX0/bKHvQYIN4XIKWw+sdtZiHYZ2FPtgDIKT8zM/Ll1uKFv7mYmjoNiO572l14PUCu5/iQVQMzgMdsAWh0C4TAkboCp6FygPR09PomH8NuQ03M1h9IM+PoI3RRoXUjoP0Vp1+cEX/ylxO13CUQOZrmin9hqcTi/T50/J1jP8t4oRPLIXWTNnCb2G7kYTAlWOVrRpkQyBm3eT4M7xgEXNQQwdAsahRhFdWPHZ/B4zVc3eey+TjG/l1uutQL99ryl3m6LPC00IMekgX9d8QJPSvrulvaeVOx2cdbMBjuBxcfAzz+YW2odHm+/bLuLA/i9sph8QwRo+yrmAzfVSDqUJ92WdAFbkFtUet4N12ZTIUwCpdBMGDJEwWfcDqAay0ik63XYTYHXDJCkIukZLn4gAa5Y3L2/3uESGtU2Ms8y5P+XFzdNzlZzSjo7Z1OO/Xs9O8NIz/JuUz8AkqNi2pSOkXpY/kHWe7sVtDvK1dIn5LWbBgN6+5lckD3+eLsKqrnkchTJ40ZN8Xw="
   matrix:
   - IMAGE=aws-ecr-cleaner
-  - IMAGE=fluentd-cloudwatch/0.12
-  - IMAGE=helm/2.7
-  - IMAGE=terraform-helm
-  - IMAGE=kubectl/1.8
-  - IMAGE=kops/1.8
+  # - IMAGE=fluentd-cloudwatch/0.12
+  # - IMAGE=helm/2.7
+  # - IMAGE=terraform-helm
+  # - IMAGE=kubectl/1.8
+  # - IMAGE=kops/1.8
   - IMAGE=kops/heptio-authenticator
   - IMAGE=openssl/1
-<<<<<<< HEAD
-  - IMAGE=terraform-helm
-=======
+  # - IMAGE=terraform-helm
   - IMAGE=boto3/1
->>>>>>> Added boto3 image
 
 script:
   - cd ${TRAVIS_BUILD_DIR}/${IMAGE} && make build 
